@@ -1,6 +1,10 @@
 <h1>Sake#index</h1>
 <p>Find me in app/views/sake/index.html.erb</p>
-<h2>Hello World</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+
+<%= link_to 'About', about_path %>
+<%= link_to 'Faq', faq_path %>
+<%= link_to 'Types of Sake 1', type_path(id: 1, title: 'Sake 1') %>
+<%= link_to 'Types of Sake 2', type_path(id: 2, title: 'Sake 2') %>
+<%= link_to 'Types of Sake 3', type_path(id: 3, title: 'Sake 3') %>
+<%= link_to 'Serving Sake', type_path(id: 'serving') %>
+<%= link_to 'Birth of Sake', type_path(id: 'birth_of_sake') %>
