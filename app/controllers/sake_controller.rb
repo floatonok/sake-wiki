@@ -3,7 +3,7 @@ class SakeController < ApplicationController
   end
 
   def show
-    info = params[:id]
+    @info = params[:id]
 
     daiginjo_images = Image.new('daiginjo.jpg', 'daiginjo2.jpg', 'daiginjo3.jpg')
 
@@ -53,7 +53,39 @@ class SakeController < ApplicationController
 
     ["本","醸","造"])
 
-    if info.to_i == 1
+    serving_images = Image.new('serving.jpg', 'serving2.jpg', 'serving3.jpg')
+
+    serving_headings = Heading.new(
+    'SERVING SAKE',
+    'Top quality sake is not served hot, as heat causes loss of flavour and aroma.',
+    "As a show of generosity, the server may put a glass inside the masu or put the masu on a saucer and pour until sake overflows.")
+
+    serving_texts = Text.new(
+    "In Japan, sake is served chilled (reishu 冷酒), at room temperature (jōon 常温 or hiya 冷や), or heated (atsukan 熱燗), depending on the preference of the drinker, the quality of the sake, and the season. Typically, hot sake is a winter drink, and high-grade sake is not drunk hot, because the flavors and aromas will be lost. This masking of flavor is the reason that low-quality and old sake is often served hot. There are gradations of temperature both for chilling and heating, about every 5 degrees, with hot sake generally served around 50 °C (122 °F), and chilled sake around 10 °C (50 °F), like white wine. Hot sake that has cooled (kanzamashi 燗冷まし) may be reheated.",
+
+    "Sake is traditionally drunk from small cups called choko or o-choko (お猪口) and poured into the choko from ceramic flasks called tokkuri. This is very common for hot sake, where the flask is heated in hot water and the small cups ensure that the sake does not get cold in the cup, but may also be used for chilled sake. Traditionally one does not pour one’s own drink, which is known as tejaku (手酌), but instead members of a party pour for each other, which is known as shaku (酌). This has relaxed in recent years, but is generally observed on more formal occasions, such as business meals, and is still often observed for the first drink.",
+
+    "Another traditional cup is the masu, a box usually made of hinoki or sugi, which was originally used for measuring rice. The masu holds exactly 180 ml, so the sake is served by filling the masu to the brim; this is done for chilled or room temperature sake. In some Japanese restaurants, as a show of generosity, the server may put a glass inside the masu or put the masu on a saucer and pour until sake overflows and fills both containers.",
+
+    ["酒","器"])
+
+    birth_of_sake_images = Image.new('', 'birth_of_sake2.jpg', 'birth_of_sake3.jpg')
+
+    birth_of_sake_headings = Heading.new(
+    'THE BIRTH OF SAKÉ',
+    "“If you were to give saké a personality, it’s a very subtle thing. It’s a beverage that supports the meal and that’s not overly sensationalized.”",
+    "“When people enjoy our sake and say it’s delicious, I truly feel grateful.”")
+
+    birth_of_sake_texts = Text.new(
+    "In a world where most mass produced goods are heavily automated, a small group of manual laborers must brave unusual working conditions to preserve a 2000-year-old tradition that we have come to know as saké. The Birth of Saké is a cinematic documentary that reveals the story of passionate saké-makers and what it takes to make world-class saké at Yoshida Brewery, a 144-year-old family-owned small brewery in northern Japan.",
+
+    "The workers at Yoshida Brewery are an eclectic cast of characters, ranging from 20 to 70 years old. As a vital part of this cast that must live and work for a six-month period through the brutal winter, charismatic veteran brewmaster Yamamoto (65) and the brewery’s sixth-generation heir, Yasuyuki Yoshida (27), are keepers of this tradition, and are the main characters who bring the narrative forward. Currently, stiff competition and the eventual retirement of experienced workers intensify the pressure of preserving quality of taste, tradition and brand reputation for Yoshida Brewery. Surrounded by 1,000 competitors, Yoshida must surface as a worthy contender in a market overrun by choices. While the narrative follows the brewery’s energy and ambition to survive, the characters remain central to the storytelling. As artisans who must dedicate their whole lives to the making of this world-class saké, their private sacrifices are often sizable and unseen.",
+
+    "Director Erik Shirai, who was a cinematographer for The Travel Channel’s ‘No Reservations’ with Anthony Bourdain, and who recently completed ‘Eye What you Eat’ a new web series for the Scripps Network, began work on the film in August of 2012, when he and producer Masako Tsumura visited the brewery for the first time. After a long and exhaustive permission process, Tedorigawa’s owners allowed full access to Erik and Masako to film at the brewery. They returned in January 2013 to live amongst the workers at the brewery and capture the intense and relatively unknown process (even within in Japan), of traditional saké making. Living at the brewery allowed them a rare window into a cast of vibrant and dynamic characters and fueled their interest in painting a deeper portrait of the people behind the product.",
+
+    ["手","取","川"])
+
+    if @info.to_i == 1
       @main_image = daiginjo_images.main
       @image_1 = daiginjo_images.image_1
       @image_2 = daiginjo_images.image_2
@@ -65,7 +97,7 @@ class SakeController < ApplicationController
       @text_2 = daiginjo_texts.text_2
       @characters = daiginjo_texts.characters
 
-    elsif info.to_i == 2
+    elsif @info.to_i == 2
       @main_image = ginjo_images.main
       @image_1 = ginjo_images.image_1
       @image_2 = ginjo_images.image_2
@@ -77,7 +109,7 @@ class SakeController < ApplicationController
       @text_2 = ginjo_texts.text_2
       @characters = ginjo_texts.characters
 
-    elsif info.to_i == 3
+    elsif @info.to_i == 3
       @main_image = honjozo_images.main
       @image_1 = honjozo_images.image_1
       @image_2 = honjozo_images.image_2
@@ -88,6 +120,30 @@ class SakeController < ApplicationController
       @text_1 = honjozo_texts.text_1
       @text_2 = honjozo_texts.text_2
       @characters = honjozo_texts.characters
+
+    elsif @info == 'serving'
+      @main_image = serving_images.main
+      @image_1 = serving_images.image_1
+      @image_2 = serving_images.image_2
+      @title = serving_headings.title
+      @heading_1 = serving_headings.heading_1
+      @heading_2 = serving_headings.heading_2
+      @overview = serving_texts.overview
+      @text_1 = serving_texts.text_1
+      @text_2 = serving_texts.text_2
+      @characters = serving_texts.characters
+
+    elsif @info == 'birth_of_sake'
+      @main_image = birth_of_sake_images.main
+      @image_1 = birth_of_sake_images.image_1
+      @image_2 = birth_of_sake_images.image_2
+      @title = birth_of_sake_headings.title
+      @heading_1 = birth_of_sake_headings.heading_1
+      @heading_2 = birth_of_sake_headings.heading_2
+      @overview = birth_of_sake_texts.overview
+      @text_1 = birth_of_sake_texts.text_1
+      @text_2 = birth_of_sake_texts.text_2
+      @characters = birth_of_sake_texts.characters
     end
 
   end
@@ -113,25 +169,3 @@ class Text
     @overview, @text_1, @text_2, @characters = overview, txt_1, txt_2, characters
   end
 end
-
-# elsif info == 'serving'
-#   @main_image = daiginjo_images.main
-#   @image_1 = daiginjo_images.image_1
-#   @image_2 = daiginjo_images.image_2
-#   @title = daiginjo_headings.title
-#   @heading_1 = daiginjo_headings.heading_1
-#   @heading_2 = daiginjo_headings.heading_2
-#   @overview = daiginjo_texts.overview
-#   @text_1 = daiginjo_texts.text_1
-#   @text_2 = daiginjo_texts.text_2
-#
-# elsif info == 'birth_of_sake'
-#   @main_image = daiginjo_images.main
-#   @image_1 = daiginjo_images.image_1
-#   @image_2 = daiginjo_images.image_2
-#   @title = daiginjo_headings.title
-#   @heading_1 = daiginjo_headings.heading_1
-#   @heading_2 = daiginjo_headings.heading_2
-#   @overview = daiginjo_texts.overview
-#   @text_1 = daiginjo_texts.text_1
-#   @text_2 = daiginjo_texts.text_2

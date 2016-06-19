@@ -1,9 +1,17 @@
 <div class="row">
   <div class="col-lg-5 col-md-5 col-sm-6 hidden-xs"  style="position:fixed;">
-    <%= image_tag @main_image %>
+    <% if @info == 'birth_of_sake' %>
+      <iframe src="https://player.vimeo.com/video/120607742?color=ffffff&title=0&byline=0&portrait=0" width="100%" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <% else %>
+      <%= image_tag @main_image %>
+    <% end %>
   </div>
   <div class="hidden-lg hidden-md hidden-sm col-xs-12"  style="position:static;">
-    <%= image_tag @main_image %>
+    <% if @info == 'birth_of_sake' %>
+      <iframe src="https://player.vimeo.com/video/120607742?color=ffffff&title=0&byline=0&portrait=0" width="100%" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <% else %>
+      <%= image_tag @main_image %>
+    <% end %>
   </div>
 
   <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
@@ -33,6 +41,7 @@
       </div>
     </div>
   </div>
+
 
   <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12" style="position:fixed; right: 0px; top: 40%;">
     <% @characters.each do |character| %>
