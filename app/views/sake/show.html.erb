@@ -35,8 +35,8 @@
   </div>
 
   <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12" style="position:fixed; right: 0px; top: 40%;">
-    <h1>大</h1>
-    <h1>吟</h1>
-    <h1>醸</h1>
+    <% @characters.each do |character| %>
+      <h1><%= character %></h1>
+    <% end %>
   </div>
 </div>
