@@ -34,34 +34,28 @@ img {
 
 /* Carousel Styling */
 .slide {
-  height: 750px;
+  height: 780px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-
 .one {
   background-image: url(image-path('birth_of_sake_1.jpg'));
 }
-
 .two {
   background-image: url(image-path('birth_of_sake_2.jpg'));
 }
-
 .three {
   background-image: url(image-path('serving_sake.jpg'));
 }
-
 .four {
   background-image: url(image-path('sake.jpeg'));
 }
-
 .carousel {
   height: 100%;
   max-height: 100%;
   overflow: hidden;
 }
-
 .carousel-caption h6 {
   font-size: 2em;
   font-style: italic;
@@ -71,21 +65,36 @@ img {
   font-size: 2em;
 }
 
+/* Navbar Styling */
+
 .navbar {
    background-color: transparent;
    background: transparent;
    border-color: transparent;
 }
-
-.navbar-brand
-{
+.navbar-brand {
   font-size: 40px;
 }
-
 .navbar-brand:after {
   content: '酒';
 }
-
 .navbar-brand:hover:after {
   content: '/sɑːkɛ/';
+}
+
+/* Static page Styling */
+
+.bg {
+  height: 780px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.about {
+  background-image: url(image-path('about.jpg'));
+}
+
+.faq {
+  background-image: url(image-path('faq.jpg'));
 }
