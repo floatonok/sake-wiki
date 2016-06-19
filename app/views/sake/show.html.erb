@@ -1,3 +1,42 @@
-<h1><%= @title %></h1>
-<%= image_tag @main_image %>
-<p><%= @content %></p>
+<div class="row">
+  <div class="col-lg-5 col-md-5 col-sm-6 hidden-xs"  style="position:fixed;">
+    <%= image_tag @main_image %>
+  </div>
+  <div class="hidden-lg hidden-md hidden-sm col-xs-12"  style="position:static;">
+    <%= image_tag @main_image %>
+  </div>
+
+  <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+    <h1><%= @title %></h1>
+    <p><%= @overview %></p>
+
+    <div class="row">
+      <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+        <h3><%= @heading_1 %></h3>
+        <p><%= @text_1 %></p>
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+        <%= image_tag @image_1 %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+        <%= image_tag @image_2 %>
+      </div>
+      <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+        <h3><%= @heading_2 %></h3>
+        <p><%= @text_2 %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12" style="position:fixed; right: 0px; top: 40%;">
+    <h1>大</h1>
+    <h1>吟</h1>
+    <h1>醸</h1>
+  </div>
+</div>
