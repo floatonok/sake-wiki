@@ -1,0 +1,85 @@
+<%= bootstrap_form_for(@sake, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :overview %>
+  <%= f.text_field :main_image %>
+  <%= f.text_field :header_1 %>
+  <%= f.text_area :text_1 %>
+  <%= f.text_field :image_1 %>
+  <%= f.text_field :header_2 %>
+  <%= f.text_area :text_2 %>
+  <%= f.text_field :image_2 %>
+  <%= f.text_field :characters %>
+  <%= f.form_group do %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
+<% if false %>
+<%= form_for(@sake) do |f| %>
+  <% if @sake.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sake.errors.count, "error") %> prohibited this sake from being saved:</h2>
+
+      <ul>
+      <% @sake.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :overview %>
+    <%= f.text_field :overview %>
+  </div>
+
+  <div class="field">
+    <%= f.label :main_image %>
+    <%= f.text_field :main_image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :header_1 %>
+    <%= f.text_field :header_1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text_1 %>
+    <%= f.text_field :text_1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image_1 %>
+    <%= f.text_field :image_1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :header_2 %>
+    <%= f.text_field :header_2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text_2 %>
+    <%= f.text_field :text_2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image_2 %>
+    <%= f.text_field :image_2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :characters %>
+    <%= f.text_field :characters %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<% end %>

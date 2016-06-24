@@ -18,14 +18,15 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Content <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li class="dropdown-header">Types of Sake</li>
-            <li><%= link_to 'Daiginjo', type_path(id: 1, title: 'daiginjo') %></li>
-            <li><%= link_to 'Gingo', type_path(id: 2, title: 'ginjo') %></li>
-            <li><%= link_to 'Honjozo', type_path(id: 3, title: 'honjozo') %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to 'Serving Sake', type_path(id: 'serving') %></li>
-            <li><%= link_to 'Birth of Sake', type_path(id: 'birth_of_sake') %></li>
+              <% @sakes.each do |sake| %>
+                <li><%= link_to sake.title.capitalize, type_path(id: sake.id, title: sake.title) %></li>
+              <% end %>
           </ul>
         </li>
+        <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Sign Up', new_user_path %></button>
+        <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Log In', login_path %></button>
+        <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Log Out',logout_path, method: :delete %></button>
+        <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Create Page', new_sake_path %></button>
       </ul>
     </div>
   </div>
