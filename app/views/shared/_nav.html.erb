@@ -23,9 +23,13 @@
               <% end %>
           </ul>
         </li>
+        <% if user_logged_in? %>
+          <%= current_user.email%>
+          <%= link_to "Log out", logout_path, method: :delete, class:"btn btn-default navbar-btn" %>
+        <% else %>
+          <%= link_to "Log in", login_path ,  class:"btn btn-default navbar-btn"%>
+        <% end %>
         <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Sign Up', new_user_path %></button>
-        <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Log In', login_path %></button>
-        <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Log Out',logout_path, method: :delete %></button>
         <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Create Page', new_sake_path %></button>
       </ul>
     </div>
